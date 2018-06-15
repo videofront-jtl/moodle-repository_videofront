@@ -35,8 +35,13 @@ require_once($CFG->dirroot . '/repository/lib.php');
  */
 class repository_videofront extends repository {
 
+    /**
+     * check login
+     *
+     * @return bool
+     */
     public function check_login() {
-        return !empty($this->keyword);
+        return false;
     }
 
     /**
@@ -45,11 +50,10 @@ class repository_videofront extends repository {
      * @param string $searchtext
      * @param int $page
      * @return array|mixed
-     * @throws moodle_exception
      */
     public function search($searchtext, $page = 0) {
         global $SESSION;
-        $sessionkeyword = 'videofront_' . $this->id . '_keyword';
+        $sessionkeyword = 'videofront_' . $this->id;
 
         if ($page && !$searchtext && isset($SESSION->{$sessionkeyword})) {
             $searchtext = $SESSION->{$sessionkeyword};
@@ -57,7 +61,6 @@ class repository_videofront extends repository {
 
         $SESSION->{$sessionkeyword} = $searchtext;
 
-        $this->keyword = $searchtext;
         $ret = array();
         $ret['nologin'] = true;
         $ret['page'] = (int)$page;
@@ -78,7 +81,6 @@ class repository_videofront extends repository {
      * @param string $keyword
      * @param int $start
      * @param int $max max results
-     * @throws moodle_exception If the google API returns an error.
      * @return array
      */
     private function search_videos($searchtext, $folder, $start) {
@@ -128,12 +130,21 @@ class repository_videofront extends repository {
         return false;
     }
 
+    /**
+     * Get listing
+     *
+     * @param string $path
+     * @param string $page
+     * @return array
+     */
     public function get_listing($path = '', $page = '') {
         return array();
     }
 
     /**
      * Generate search form
+     *
+     * @param bool $ajax
      */
     public function print_login($ajax = true) {
         $ret = array();
