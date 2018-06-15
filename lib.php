@@ -77,10 +77,11 @@ class repository_videofront extends repository {
     }
 
     /**
-     * Private method to get videofront search results
-     * @param string $keyword
-     * @param int $start
-     * @param int $max max results
+     * Private method to search remote videos
+     *
+     * @param $searchtext
+     * @param $folder
+     * @param $start
      * @return array
      */
     private function search_videos($searchtext, $folder, $start) {
