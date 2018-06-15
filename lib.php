@@ -67,8 +67,8 @@ class repository_videofront extends repository {
         if ($ret['page'] < 1) {
             $ret['page'] = 1;
         }
-        $start = ($ret['page'] - 1) * 20 + 1;
-        $ret['list'] = $this->search_videos($searchtext, 0, $start);
+        $start = $ret['page'];
+        $ret['list'] = $this->search_videos($searchtext, 0, $page);
         $ret['norefresh'] = true;
         $ret['nosearch'] = true;
         // If the number of results is smaller than $max, it means we reached the last page.
@@ -79,12 +79,12 @@ class repository_videofront extends repository {
     /**
      * Private method to search remote videos
      *
-     * @param $searchtext
-     * @param $folder
-     * @param $start
+     * @param string $searchtext
+     * @param int $folder
+     * @param int $page
      * @return array
      */
-    private function search_videos($searchtext, $folder, $start) {
+    private function search_videos($searchtext, $folder, $page) {
         global $CFG;
 
         $config = get_config('videofront');
@@ -93,7 +93,7 @@ class repository_videofront extends repository {
         $error = null;
 
         require($CFG->dirroot . '/mod/videofront/classes/video.php');
-        $videos = video::listing(1, $folder, "{$searchtext}%");
+        $videos = video::listing($page, $folder, "{$searchtext}%");
 
         foreach ($videos->videos as $video) {
 
