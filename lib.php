@@ -115,7 +115,7 @@ class repository_videofront extends repository {
                     'icon' => "{$thumb}?w=29",
                     'size' => '',
                     'date' => '',
-                    'source' => 'videofront://' . $video->VIDEO_IDENTIFIER,
+                    'source' => 'videoteca://' . $video->VIDEO_IDENTIFIER,
                 );
             }
         }
