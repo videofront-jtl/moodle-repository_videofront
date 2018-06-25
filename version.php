@@ -24,10 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2018061500;
+$plugin->version = 2018062500; //..
 $plugin->requires = 2017050500;
 $plugin->component = 'repository_videofront';
-$plugin->release = 'v1.0.5';
+$plugin->release = 'v1.0.6';
 $plugin->maturity = MATURITY_STABLE;
 
 $plugin->dependencies = array('mod_videofront' => 2018061202);

@@ -91,8 +91,10 @@ class repository_videofront extends repository {
         $list = array();
         $error = null;
 
-        require($CFG->dirroot . '/mod/videofront/classes/video.php');
-        $videos = video::listing($page, 0, "{$searchtext}%");
+        if (!defined('VIDEOFRONTVIDEO')) {
+            require($CFG->dirroot . '/mod/videofront/classes/videofrontvideo.php');
+        }
+        $videos = videofrontvideo::listing($page, 0, "{$searchtext}%");
 
         foreach ($videos->videos as $video) {
 
