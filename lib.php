@@ -79,7 +79,6 @@ class repository_videofront extends repository {
      * Private method to search remote videos
      *
      * @param string $searchtext
-     * @param int $folder
      * @param int $page
      * @return array
      */
