@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2018062500; // Version.
+$plugin->version = 2018062900; // Version.
 $plugin->requires = 2017050500;
-$plugin->release = 'v1.0.8';
+$plugin->release = 'v1.0.9';
 $plugin->component = 'repository_videofront';
 $plugin->maturity = MATURITY_STABLE;
 

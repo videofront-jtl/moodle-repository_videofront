@@ -27,4 +27,5 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'VideoFront vídeos';
 $string['search'] = 'Buscar vídeos';
 $string['videofront:view'] = 'Use o VideoFront no Seletor de Arquivos';
+$string['privacy:metadata'] = 'A Vídeoteca se integrada com o <a href="https://www.videofront.com.br/br/LiveSparrow">Live Sparrow</a> guardará dados para detecção de pirataria.';
 
